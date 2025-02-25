@@ -1,0 +1,13 @@
+compositional Python code and use DSPy to teach your LM to deliver high-quality outputs. 
+ 
+Getting Started I: Install DSPy and set up your LM 
+> pip install -U dspy 
+ 
+Local LMs on your laptop 
+First, install Ollama and launch its server with your LM. 
+> curl -fsSL https://ollama.ai/install.sh | sh 
+> ollama run llama3.2:1b  
+Then, connect to it from your DSPy code. 
+import dspy 
+lm = dspy.LM('ollama_chat/llama3.2', api_base='http://localhost:11434', api_key='') 
+dspy.configure(lm=lm)
